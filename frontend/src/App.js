@@ -126,18 +126,32 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col font-sans">
-      <header className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 py-4 flex justify-between items-center shadow-lg">
-        <h1 className="text-2xl font-bold">🌍 Live Location Tracker</h1>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', fontFamily: 'system-ui' }}>
+      <header style={{
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        color: 'white',
+        padding: '15px 30px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
+      }}>
+        <h1 style={{ fontSize: '24px', fontWeight: '600', margin: 0 }}>🌍 Live Location Tracker</h1>
         <ConnectionStatus isConnected={isConnected} userCount={userCount} />
       </header>
       
-      <div className="flex flex-1 overflow-hidden">
-        <div className="flex-1 relative">
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+        <div style={{ flex: 1, position: 'relative' }}>
           <MapComponent users={users} currentUser={currentUser} />
         </div>
         
-        <div className="w-80 min-w-80 bg-white border-l border-gray-200 shadow-lg">
+        <div style={{
+          width: '350px',
+          minWidth: '300px',
+          backgroundColor: '#ffffff',
+          borderLeft: '1px solid #e0e0e0',
+          boxShadow: '-2px 0 10px rgba(0, 0, 0, 0.1)'
+        }}>
           <UserPanel 
             users={users}
             currentUser={currentUser}
